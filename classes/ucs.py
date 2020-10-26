@@ -14,7 +14,7 @@ class Ucs:
         return int(cost[(from_node, to_node)])
 
     def ucs(self, graph, start_node, goal_node):
-        visited = set()
+        #visited = set()
         queue = Q.PriorityQueue()
         queue.put((0, start_node))
 
@@ -30,11 +30,13 @@ class Ucs:
                     self.end_search = True
                     break
                 for i in list(graph[node]):
-                    #print(i)
+                    print('start')
+                    #if i in self.visited:
+                        #print(i)
                     if i not in self.visited:
-                        print('start')
-                        print(i)
-                        print('end')
+                        #print('not')
+                        #print(i)
+
                         total_cost = cost + self.get_cost(graph, node, i)
                         queue.put((total_cost, i))
             else:
